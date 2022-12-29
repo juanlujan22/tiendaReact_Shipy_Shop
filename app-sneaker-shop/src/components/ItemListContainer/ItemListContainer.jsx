@@ -1,11 +1,11 @@
-import {  Flex } from "@chakra-ui/react";
+import {  Heading } from "@chakra-ui/react";
 
-export function ItemListContainer({ greeting1 }) {
+export function ItemListContainer({ saludo }) {
   return (
       <>  
-        <Flex maxW="sm" justifyContent="start" mr="-2" > 
-            {greeting1} 
-        </Flex>
+        <Heading display="flex" alignItems="center" justifyContent="center" >
+            {saludo} 
+        </Heading>
       </>
   )
        

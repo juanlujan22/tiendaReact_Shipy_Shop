@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <ItemListContainer greeting1={"Hola bienvenido!!"}  />
+      <ItemListContainer saludo={"Hola, Bienvenido a Mi Tienda!!"}  />
       <Container >
         {products.map((producto)=>{
           return <ProductCard key={producto.id} image={producto.image} titulo={producto.title} precio={producto.price} descripcion={producto.description} categoria={producto.category} />
