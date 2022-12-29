@@ -2,7 +2,7 @@ import  products  from "./products/products.json";
 import { Container } from '@chakra-ui/react'
 import ProductCard from "./components/ProductCard/ProductCard";
 import NavBar from "./components/NavBar/NavBar";
-import {ItemListContainer} from "./components/ItemListContainer/ItemListContainer"
+import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer"
 import Footer from "./components/Footer/Footer";
 function App() {
   return (
