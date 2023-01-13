@@ -1,23 +1,36 @@
-import {  Heading } from "@chakra-ui/react";
-import ProductCard from "../ProductCard/ProductCard";
-import  products  from "../../products/products.json";
-import { Container } from '@chakra-ui/react'
-import {ItemCount} from "../ItemCount/ItemCount"
+import {ItemList} from "../ItemList/ItemList"
+import { Spinner, Flex } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import axios from "axios"
 
-
-export function ItemListContainer({ saludo }) {
+export function ItemListContainer() {
+  const [listaProductos, setListaProductos]=useState([])
+  const [loading, setLoading]=useState(true)
+  const obtenerProductos= ()=>{
+    axios
+      .get('https://fakestoreapi.com/products')
+      .then((res)=> {
+      setListaProductos(res.data)
+      setLoading(false)})
+  }
+  
+  useEffect (()=>{
+    obtenerProductos()
+  },[])
   return (
-      <>  
-        <Heading display="flex" alignItems="center" justifyContent="center" >
-            {saludo} 
-        </Heading>
-        <ItemCount stock={10} incial={1} onAdd={()=>{}} />
-        <Container >
-        {products.map((producto)=>{
-          return <ProductCard key={producto.id} image={producto.image} titulo={producto.title} precio={producto.price} descripcion={producto.description} categoria={producto.category} />
-        })}
-      </Container>
-      </>
-  )
-       
+    <>
+      {!loading 
+      ? 
+      <ItemList listaProductos={listaProductos} saludo={"Bienvenido a Shippy!!"} />
+      :
+       <Flex justifyContent={"center"} m="30px"> 
+          <Spinner  thickness='4px'
+                    speed='0.65s'
+                    emptyColor='gray.200'
+                    color='blue.500'
+                    size='xl'/>
+       </Flex> 
+      }
+    </>
+  );
 }
