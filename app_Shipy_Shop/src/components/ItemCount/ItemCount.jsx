@@ -15,8 +15,8 @@ export function  ItemCount ({stock, incial, onAdd}) {
   return (
     <>
         <HStack >
+            <Text> Cantidad:  {count} </Text> 
             <Button onClick={resta}> - </Button>
-            <Text> {count} </Text> 
             <Button onClick={suma}> + </Button>
             <Button onClick={reset}> Reset </Button>
         </HStack>

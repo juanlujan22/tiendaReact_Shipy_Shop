@@ -1,4 +1,5 @@
 import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Image, Stack, Text } from '@chakra-ui/react'
+import { ItemCount } from '../ItemCount/ItemCount';
 
 const Item = ({image, titulo, precio, descripcion, categoria}) => {
     return (
@@ -24,6 +25,9 @@ const Item = ({image, titulo, precio, descripcion, categoria}) => {
             </Stack>
           </CardBody>
           <Divider />
+          <Stack mt="6" justifyContent= "center" alignItems={"center"} > 
+          <ItemCount stock={10} incial={1} onAdd={() => {}} /> 
+          </Stack>
           <CardFooter>
             <ButtonGroup spacing="2">
               <Button variant="solid" colorScheme="blue">

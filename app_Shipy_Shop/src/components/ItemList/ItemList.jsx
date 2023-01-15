@@ -1,6 +1,5 @@
 import { Heading } from "@chakra-ui/react";
 import { Grid } from "@chakra-ui/react";
-import { ItemCount } from "../ItemCount/ItemCount";
 import Item from "../Item/Item";
 
 export function ItemList ({saludo, listaProductos}){
@@ -34,7 +33,6 @@ export function ItemList ({saludo, listaProductos}){
             );
           })}
         </Grid>
-        <ItemCount stock={10} incial={1} onAdd={() => {}} />
       </Grid>
     </>
   );
