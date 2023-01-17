@@ -1,33 +1,29 @@
-import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Image, Stack, Text } from '@chakra-ui/react'
+import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Image, Stack, Text, Flex } from '@chakra-ui/react'
 import { ItemCount } from '../ItemCount/ItemCount';
 
-const Item = ({image, titulo, precio, descripcion, categoria}) => {
+const Item = ({image, titulo, precio, categoria}) => {
     return (
       <>
-        <Card  maxW="sm" mt="5" boxShadow='2xl' backgroundColor="#F0ECCF" >
+        <Card  maxW="sm"  boxShadow='2xl' backgroundColor="#F0ECCF" m="5">
           <CardBody>
-            <Image
-              src= {image}
-              alt="Green double couch with wooden legs"
-              borderRadius="lg"
-            />
+            <Flex backgroundColor="white" alignItems="center" justifyContent= "center"  borderRadius="lg">  
+              <Image
+                src= {image}
+                borderRadius="lg"
+                h="30vh"
+              />
+            </Flex>
             <Stack mt="6" spacing="3">
               <Heading size="md">{titulo}</Heading>
               <Text>
                 {categoria}
               </Text>
-              <Text>
-                {descripcion}
-              </Text>
               <Text color="blue.600" fontSize="2xl">
-                {precio}
+               $ {precio}
               </Text>
             </Stack>
           </CardBody>
           <Divider />
-          <Stack mt="6" justifyContent= "center" alignItems={"center"} > 
-          <ItemCount stock={10} incial={1} onAdd={() => {}} /> 
-          </Stack>
           <CardFooter>
             <ButtonGroup spacing="2">
               <Button variant="solid" colorScheme="blue">
