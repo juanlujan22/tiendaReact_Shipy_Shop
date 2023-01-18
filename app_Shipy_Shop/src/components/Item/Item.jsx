@@ -1,7 +1,7 @@
 import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Image, Stack, Text, Flex } from '@chakra-ui/react'
-import { ItemCount } from '../ItemCount/ItemCount';
+import { NavLink } from "react-router-dom";
 
-const Item = ({image, titulo, precio, categoria}) => {
+const Item = ({image, titulo, precio, categoria, id}) => {
     return (
       <>
         <Card  maxW="sm"  boxShadow='2xl' backgroundColor="#F0ECCF" m="5">
@@ -25,13 +25,12 @@ const Item = ({image, titulo, precio, categoria}) => {
           </CardBody>
           <Divider />
           <CardFooter>
-            <ButtonGroup spacing="2">
-              <Button variant="solid" colorScheme="blue">
-                Comprar Ahora
-              </Button>
-              <Button variant="ghost" colorScheme="blue">
-                Agregar al Carrito
-              </Button>
+            <ButtonGroup >
+              <NavLink to={`product/${id}`}>
+                <Button variant="solid" colorScheme="blue">
+                  Ver Detalle
+                </Button>
+              </NavLink>
             </ButtonGroup>
           </CardFooter>
         </Card>

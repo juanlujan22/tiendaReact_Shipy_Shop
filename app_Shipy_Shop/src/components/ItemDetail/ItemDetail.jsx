@@ -5,14 +5,16 @@ export function ItemDetail({ listaProducto }) {
   return (
     <>
       <Card
-        direction={{ base: "column", sm: "row" }}
         overflow="hidden"
         variant="outline"
         m="10"
         backgroundColor="#F0ECCF"
+        boxShadow='2xl'
       >
         <Image
-          objectFit="contain"
+          pl="3"
+          borderRadius="lg"
+          objectFit="fill"
           maxW={{ base: "100%", sm: "200px" }}
           src={listaProducto.image}
           alt={listaProducto.title}
@@ -24,6 +26,9 @@ export function ItemDetail({ listaProducto }) {
 
             <Text py="2">
               {listaProducto.description}
+            </Text>
+            <Text color="blue.600" fontSize="2xl">
+               $ {listaProducto.price}
             </Text>
           </CardBody>
 
