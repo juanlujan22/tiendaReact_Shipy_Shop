@@ -8,7 +8,7 @@ export function ItemListContainer() {
   const [listaProductos, setListaProductos]=useState([])
   const [loading, setLoading]=useState(true)
   const {category} = useParams()
-  console.log(category)
+
 
   const obtenerProductos= ()=>{
     axios

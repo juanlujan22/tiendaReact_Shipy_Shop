@@ -29,6 +29,7 @@ export function ItemList ({saludo, listaProductos}){
                 precio={producto.price}
                 descripcion={producto.description}
                 categoria={producto.category}
+                id={producto.id}
               />
             );
           })}

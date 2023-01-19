@@ -1,5 +1,6 @@
 import { Card, Image, Stack, CardBody, Text, CardFooter, Button, Heading } from "@chakra-ui/react";
 import { ItemCount } from "../ItemCount/ItemCount";
+
 export function ItemDetail({ listaProducto }) {
   console.log(listaProducto);
   return (
