@@ -1,25 +1,31 @@
 import { ItemDetail } from "../ItemDetail/ItemDetail";
 import { Spinner, Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import axios from "axios"
 import { useParams } from "react-router-dom";
+
+import { db } from "../../../DB/firebase-config";
+import { collection, getDocs } from "firebase/firestore";
 
 export function ItemDetailContainer()  {
   const [listaProducto, setListaProducto]=useState({})
   const [loading, setLoading]=useState(true)
   const {id} = useParams()
-
-  const obtenerProducto= ()=>{
-    axios
-      .get('https://fakestoreapi.com/products')
-      .then((res)=> {
-      setListaProducto(res.data.find(prod => prod.id == id))
-      setLoading(false)})
-  }
   
   useEffect (()=>{
-    obtenerProducto()
-  },[])
+    const productosCollection = collection(db, "productos");
+    const pedido = getDocs(productosCollection);
+
+    pedido
+      .then((snapshot) => {
+        console.log(snapshot.docs);
+        console.log(snapshot.docs.map((doc) => doc.data()));
+        const productos = snapshot.docs.map((doc) => {
+          return { ...doc.data(), id: doc.id };
+        });
+        setListaProducto(productos.find(prod => prod.id === id))
+        setLoading(false)  
+      })
+  },[id])
   return (
     <>
       {!loading 

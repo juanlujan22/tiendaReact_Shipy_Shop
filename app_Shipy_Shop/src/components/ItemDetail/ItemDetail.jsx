@@ -1,8 +1,15 @@
-import { Card, Image, Stack, CardBody, Text, CardFooter, Button, Heading } from "@chakra-ui/react";
+import { Card, Image, Stack, CardBody, Button, Text, Heading } from "@chakra-ui/react";
 import { ItemCount } from "../ItemCount/ItemCount";
+import { useState } from "react";
+import {  NavLink } from "react-router-dom";
 
 export function ItemDetail({ listaProducto }) {
-  console.log(listaProducto);
+  console.log(listaProducto)
+  const [added, setAdded]= useState(false)
+
+  const onAdd= ()=>{
+    setAdded(true)
+  }
   return (
     <>
       <Card
@@ -32,15 +39,17 @@ export function ItemDetail({ listaProducto }) {
                $ {listaProducto.price}
             </Text>
           </CardBody>
-
+          {
+            added 
+            ?
+            <NavLink to="/cart"> 
+              <Button>Ir al Carrito</Button>
+            </NavLink>
+            :
             <Stack pl="6" > 
-              <ItemCount stock={10} incial={1} onAdd={() => {}} /> 
+              <ItemCount stock={10} incial={1} onAdd={onAdd} /> 
             </Stack>
-          <CardFooter>
-            <Button variant="solid" colorScheme="blue">
-              Agregar al Carrito
-            </Button>
-          </CardFooter>
+          }
         </Stack>
       </Card>
     </>

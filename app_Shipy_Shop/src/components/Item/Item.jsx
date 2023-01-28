@@ -26,7 +26,7 @@ const Item = ({image, titulo, precio, categoria, id}) => {
           <Divider />
           <CardFooter>
             <ButtonGroup >
-              <NavLink to={`product/${id}`}>
+              <NavLink to={`producto/${id}`}>
                 <Button variant="solid" colorScheme="blue">
                   Ver Detalle
                 </Button>
