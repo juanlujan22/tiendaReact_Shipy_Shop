@@ -1,7 +1,14 @@
 import { Flex } from "@chakra-ui/react";
 import { FaShoppingCart } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
+import { useContext } from "react";
+
 export function CartWidget() {
+
+  const {qty}  = useContext(CartContext)
+
+
   return (
     <>
       <Flex
@@ -11,7 +18,7 @@ export function CartWidget() {
         alignItems={"center"}
       >
         <NavLink to="/cart">
-          <FaShoppingCart /> 0
+          <FaShoppingCart /> {qty}
         </NavLink>
       </Flex>
     </>

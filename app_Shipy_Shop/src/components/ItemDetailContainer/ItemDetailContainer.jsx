@@ -7,7 +7,7 @@ import { db } from "../../../DB/firebase-config";
 import { collection, getDocs } from "firebase/firestore";
 
 export function ItemDetailContainer()  {
-  const [listaProducto, setListaProducto]=useState({})
+  const [item, setItem]=useState({})
   const [loading, setLoading]=useState(true)
   const {id} = useParams()
   
@@ -22,7 +22,7 @@ export function ItemDetailContainer()  {
         const productos = snapshot.docs.map((doc) => {
           return { ...doc.data(), id: doc.id };
         });
-        setListaProducto(productos.find(prod => prod.id === id))
+        setItem(productos.find(prod => prod.id === id))
         setLoading(false)  
       })
   },[id])
@@ -30,7 +30,7 @@ export function ItemDetailContainer()  {
     <>
       {!loading 
       ? 
-      <ItemDetail listaProducto={listaProducto} />
+      <ItemDetail item={item} />
       :
        <Flex justifyContent={"center"} m="30px"> 
           <Spinner  thickness='4px'
