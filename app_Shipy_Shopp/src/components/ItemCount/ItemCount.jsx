@@ -12,7 +12,6 @@ export function  ItemCount ({stock, incial, onAdd}) {
 
    const resta=()=> count > incial && setCount(count-1)
 
-   const agregarAlCarrito=()=> onAdd(count)  
    
   return (
     <>
@@ -21,7 +20,7 @@ export function  ItemCount ({stock, incial, onAdd}) {
             <Button onClick={resta}> - </Button>
             <Button onClick={suma}> + </Button>
         </HStack>
-        <Button onClick={agregarAlCarrito}> Agregar al Carrito </Button>
+        <Button onClick={()=> onAdd(count)}> Agregar al Carrito </Button>
         
     </>
   )

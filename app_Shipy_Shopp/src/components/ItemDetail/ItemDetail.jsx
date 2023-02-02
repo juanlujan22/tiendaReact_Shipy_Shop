@@ -9,11 +9,12 @@ export function ItemDetail({ item }) {
   const [added, setAdded]= useState(false)
   const {addToCart}=useContext(CartContext)
 
- //item y qty, tienen todo el detalle del producto
-  const onAdd= (qty)=>{
+ const onAdd= (qty)=>{
     addToCart(item, qty)
     setAdded(true)
   }
+ 
+
   return (
     <>
     <Flex>

@@ -10,7 +10,7 @@ export function ItemListContainer() {
   const [listaProductos, setListaProductos] = useState([]);
   const [loading, setLoading] = useState(true);
   const { category } = useParams();
-
+ 
   useEffect(() => {
     const productosCollection = collection(db, "productos");
     const pedido = getDocs(productosCollection);

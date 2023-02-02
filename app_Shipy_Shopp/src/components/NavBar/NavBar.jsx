@@ -9,7 +9,7 @@ const NavBar = () => {
       <NavLink to="/">
         <Box display={"flex"} alignItems="center" justifyContent="center" flexWrap="wrap" >
           <img src={Logo} style={{height: "50px" }} alt={"logo"} />
-          <Heading as='b' fontSize="2xl" p='4'> Shippy Shop </Heading>
+          <Heading as='b' fontSize="2xl" p='4'> Shippy Shopp </Heading>
         </Box>
       </NavLink>
       <Box display={"flex"} alignItems="center" justifyContent="center" flexWrap="wrap" >
