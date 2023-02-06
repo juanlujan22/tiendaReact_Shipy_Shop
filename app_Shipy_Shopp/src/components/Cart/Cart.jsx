@@ -14,12 +14,9 @@ export function Cart() {
             <Text as="b">Precio: {product.price}</Text>
             <Button colorScheme="orange" onClick={()=>{deleteItem(product.id)}}>X</Button>
           </HStack>
-          <Text>Precio Total: ${totalPrice()}</Text>
-          <Button colorScheme="orange" onClick={()=>{removeList()}}>X</Button>
         </VStack>
       </Center>      
     )})} 
-  console.log(cartList);
   return (
     <>
       {render()}
