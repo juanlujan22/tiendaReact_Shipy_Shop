@@ -1,7 +1,6 @@
 import { CartContext } from "../../context/CartContext";
 import { useContext } from "react";
 import { Center, VStack, HStack, Image, Text, Button } from "@chakra-ui/react";
-
 export function Cart() {
   const { cartList, deleteItem, removeList, totalPrice } = useContext(CartContext);
   const render= () => { return cartList.map( product =>{ 
@@ -16,6 +15,7 @@ export function Cart() {
             <Button colorScheme="orange" onClick={()=>{deleteItem(product.id)}}>X</Button>
           </HStack>
           <Text>Precio Total: ${totalPrice()}</Text>
+          <Button colorScheme="orange" onClick={()=>{removeList()}}>X</Button>
         </VStack>
       </Center>      
     )})} 

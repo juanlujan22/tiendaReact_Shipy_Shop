@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { HStack, Button, Text, Flex } from "@chakra-ui/react";
+import { HStack, Button, Text } from "@chakra-ui/react";
 
 
 export function  ItemCount ({stock, incial, onAdd}) {
